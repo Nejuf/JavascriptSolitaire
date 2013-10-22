@@ -93,55 +93,6 @@
 		}
 	}
 
-	Game.prototype.oldCheckWin = function() {
-		var winner = undefined;
-		if(this.board[0][0] !== 1 &&
-			 this.board[0][0] === this.board[0][1] &&
-			 this.board[0][1] === this.board[0][2]) {
-				 winner = this.board[0][0];
-		} else if(this.board[1][0] !== 1 &&
-			 this.board[1][0] === this.board[1][1] &&
-			 this.board[1][1] === this.board[1][2]) {
-				 winner = this.board[1][0];
-		} else if(this.board[2][0] !== 1 &&
-			 this.board[2][0] === this.board[2][1] &&
-			 this.board[2][1] === this.board[2][2]) {
-				 winner = this.board[2][0]
-		} else if(this.board[0][0] !== 1 &&
-			 this.board[0][0] === this.board[1][0] &&
-			 this.board[1][0] === this.board[2][0]) {
-				 winner = this.board[0][0];
-		} else if(this.board[0][1] !== 1 &&
-			 this.board[0][1] === this.board[1][1] &&
-			 this.board[1][1] === this.board[2][1]) {
-				 winner = this.board[0][1]
-		} else if(this.board[0][2] !== 1 &&
-			 this.board[0][2] === this.board[1][2] &&
-			 this.board[1][2] === this.board[2][2]) {
-				 winner = this.board[0][2];
-		} else if(this.board[0][0] !== 1 &&
-			 this.board[0][0] === this.board[1][1] &&
-			 this.board[1][1] === this.board[2][2]) {
-				 winner = this.board[0][0];
-		} else if(this.board[0][2] !== 1 &&
-			 this.board[0][2] === this.board[1][1] &&
-			 this.board[1][1] === this.board[2][0]) {
-				 winner == this.board[0][2];
-		}
-
-		if(winner) {
-			this.show();
-			console.log(winner + " wins!");
-			reader.close();
-		} else if(this.boardFull()) {
-			this.show();
-			console.log("Draw.");
-			reader.close();
-		} else {
-			this.run();
-		}
-	}
-
 	Game.prototype.run = function() {
 		this.player = (this.player || "x");
 		this.show();
