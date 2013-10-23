@@ -24,5 +24,9 @@ var _ = require('./underscore.js')._;
 		return this.cards.pop();
 	}
 
+	Deck.prototype.length = function() {
+		return this.cards.length;
+	}
+
 	exports.Deck = Deck;
 })(this);

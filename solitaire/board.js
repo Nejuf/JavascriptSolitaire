@@ -25,8 +25,33 @@ var _ = require('./underscore.js')._;
 
 	Board.prototype.show = function(){
 		var that = this;
+		var topLineArr = (this.deck.length() < 10) ?
+			["  " + this.deck.length()] : [" " + this.deck.length()];
+		for(var i = this.waste.length-3; i<this.waste.length; i++) {
+			if(i < 0) continue;
+
+			topLineArr.push(this.waste[i]);
+		}
+
+		while(topLineArr.length < 5) {
+			topLineArr.push("  ");
+		}
+
+		this.foundations.forEach(function(foundation) {
+			var card = foundation[foundation.length-1];
+			if(card) {
+				topLineArr.push(card);
+			} else {
+				topLineArr.push("  ");
+			}
+		});
+
+		console.log(topLineArr.join(" "));
+
+
+
 		_.times(20, function(num){
-			var lineString = "";
+			var lineString = "      ";
 
 			for(var i=0; i < that.tableau.length; i++){
 				var c = that.tableau[i][num-1];

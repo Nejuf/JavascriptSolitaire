@@ -20,6 +20,9 @@
 
 		switch(this.value)
 		{
+		case 10:
+			numString = "X";
+			break;
 		case 11:
 			numString = "J";
 			break;
